@@ -15,7 +15,7 @@ class TestCourse(common.TransactionCase):
         data_generator = Faker()
         res = []
         for student in range(amount):
-            values = {'name': data_generator.first_name(), 'course_id': course_id}
+            values = {'name': data_generator.first_name(), 'course_id': int(course_id)}
             res.append(model_obj.create(cr, uid, values)) #Vamos a devolver una lista de ids.
         return res
 
@@ -30,7 +30,7 @@ class TestCourse(common.TransactionCase):
 
         #Voy a llamar los modelos que quiero probar.
         self.course_obj = self.registry('course.course')
-        self.student_obj = self.registry('course.student')
+        self.student_obj = self.registry('student.student')
 
         #Crear la data de prueba, SI quiero usar ORM para esto.
         self.course_id = self.create_course(cr, uid, self.course_obj)
