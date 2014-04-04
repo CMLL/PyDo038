@@ -1,3 +1,3 @@
-from . import testClass
+from . import test_class
 
-fast_suite = [testClass]
+fast_suite = [test_class]

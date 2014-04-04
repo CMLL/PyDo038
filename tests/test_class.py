@@ -30,7 +30,7 @@ class TestCourse(common.TransactionCase):
 
         #Voy a llamar los modelos que quiero probar.
         self.course_obj = self.registry('course.course')
-        self.student_obj = self.registr('course.student')
+        self.student_obj = self.registry('course.student')
 
         #Crear la data de prueba, SI quiero usar ORM para esto.
         self.course_id = self.create_course(cr, uid, self.course_obj)
