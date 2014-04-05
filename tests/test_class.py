@@ -46,3 +46,9 @@ class TestCourse(common.TransactionCase):
         self.assertTrue(results)
 
 
+    def testRelacionarEstudiantesPorCurso(self):
+        """Checqueamos que desde nuestro curso podemos llevar un control de
+        estudiantes registrados."""
+        cr, uid = self.cr, self.uid
+        curso = self.course_obj.browse(cr, uid, self.course_id)
+        self.assertTrue(curso.registered_student)
