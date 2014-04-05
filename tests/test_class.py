@@ -51,4 +51,4 @@ class TestCourse(common.TransactionCase):
         estudiantes registrados."""
         cr, uid = self.cr, self.uid
         curso = self.course_obj.browse(cr, uid, self.course_id)
-        self.assertTrue(curso.registered_student)
+        self.assertTrue(curso.registered_students)
