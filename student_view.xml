@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="student_form_view">
+            <field name="name">student.form.view</field>
+            <field name="model">student.student</field>
+            <field name="arch" type="xml">
+                <form version="7.0" string="Students">
+                    <sheet>
+                        <group col="4" colspan="1">
+                            <field name="name"/>
+                            <field name="course_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="course_tree_view">
+            <field name="name">student.tree.view</field>
+            <field name="model">student.student</field>
+            <field name="arch" type="xml">
+                <tree version="7.0" string="Students">
+                    <field name="name"/>
+                    <field name="course_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="student_action_view">
+            <field name="name">Students</field>
+            <field name="res_model">student.student</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Estudiantes" sequence="10" id="student_menu" parent="courses_main_menu"
+            action="student_action_view"/>
+
+        </data>
+    </openerp>

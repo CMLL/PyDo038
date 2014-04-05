@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="course_form_view">
+            <field name="name">course.form.view</field>
+            <field name="model">course.course</field>
+            <field name="arch" type="xml">
+                <form version="7.0" string="Cursos">
+                    <sheet>
+                        <group col="4" colspan="1">
+                            <field name="name"/>
+                            <field name="subject"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="course_tree_view">
+            <field name="name">course.tree.view</field>
+            <field name="model">course.course</field>
+            <field name="arch" type="xml">
+                <tree version="7.0" string="Cursos">
+                    <field name="name"/>
+                    <field name="subject"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="course_action_view">
+            <field name="name">Cursos</field>
+            <field name="res_model">course.course</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Cursos" sequence="10" id="courses_base_menu"/>
+        <menuitem name="Cursos" sequence="10" id="courses_main_menu" parent="courses_base_menu"/>
+        <menuitem name="Cursos" sequence="10" id="courses_menu" parent="courses_main_menu"
+            action="course_action_view"/>
+
+        </data>
+    </openerp>
