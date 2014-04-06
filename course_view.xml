@@ -12,6 +12,11 @@
                             <field name="name"/>
                             <field name="subject"/>
                         </group>
+                        <notebook>
+                            <page string="Estudiantes">
+                                <field name="registered_students"/>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>
@@ -23,7 +28,6 @@
             <field name="arch" type="xml">
                 <tree version="7.0" string="Cursos">
                     <field name="name"/>
-                    <field name="subject"/>
                 </tree>
             </field>
         </record>

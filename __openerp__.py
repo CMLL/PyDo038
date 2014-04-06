@@ -7,6 +7,8 @@
     """
     Charla para Python Dominicana. 8 de abril del 2014.
     """,
-    'data':[],
+    'data':[
+    'course_view.xml',
+    'student_view.xml',],
     'installable': True,
 }
