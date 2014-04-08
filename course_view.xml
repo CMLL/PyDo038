@@ -7,10 +7,14 @@
             <field name="model">course.course</field>
             <field name="arch" type="xml">
                 <form version="7.0" string="Cursos">
+                    <header>
+                        <button string="Validate" name="validate" type="object"/>
+                    </header>
                     <sheet>
                         <group col="4" colspan="1">
                             <field name="name"/>
                             <field name="subject"/>
+                            <field name="max_students"/>
                         </group>
                         <notebook>
                             <page string="Estudiantes">
@@ -28,6 +32,7 @@
             <field name="arch" type="xml">
                 <tree version="7.0" string="Cursos">
                     <field name="name"/>
+                    <field name="max_students"/>
                 </tree>
             </field>
         </record>
