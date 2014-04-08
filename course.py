@@ -10,7 +10,13 @@ class Course(orm.Model):
         'subject': fields.char('Course Subject', size=32, required=True),
         'registered_students': fields.one2many('student.student', 'course_id',
                                                'Estudiantes Registrados'),
-        'max_students': fields.integer('Cantidad Maxima', size=2, required=True)
+        'max_students': fields.integer('Cantidad Maxima', size=2, required=True),
+        'state': fields.selection([('draft','Draft'),('validated','Validated')],
+                                  'State')
+    }
+
+    _default = {
+        'state': 'draft'
     }
 
     def validate(self, cr, uid, ids, context=None):
@@ -19,3 +25,5 @@ class Course(orm.Model):
             registrados = len(curso.registered_students)
             if registrados > curso.max_students:
                 raise orm.except_orm('ERROR', "Mas alumnos registrados que lo permitido.")
+            else:
+                self.write(cr, uid, curso.id, {'state': 'validated'}, context)

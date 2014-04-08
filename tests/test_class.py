@@ -76,6 +76,6 @@ class TestCourse(common.TransactionCase):
         """Queremos validar que nuestro metodo de validación modifique
         el registro en casos positivos."""
         cr, uid = self.cr, self.uid
-        self.course_obj.validate(cr, uid, self.course_id)
-        curso = self.course_obj.browse(cr, uid, [self.course_id])
+        self.course_obj.validate(cr, uid, [self.course_id])
+        curso = self.course_obj.browse(cr, uid, self.course_id)
         self.assertEqual('validated', curso.state)
