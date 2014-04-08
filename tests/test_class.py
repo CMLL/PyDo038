@@ -71,3 +71,11 @@ class TestCourse(common.TransactionCase):
         #para solamente esta prueba. Es posible, pero es mejor crear otro curso
         #para que falle.
         self.assertRaises(orm.except_orm, self.course_obj.validate, cr, uid, [self.bad_course_id])
+
+    def testValidateChangesStatus(self):
+        """Queremos validar que nuestro metodo de validación modifique
+        el registro en casos positivos."""
+        cr, uid = self.cr, self.uid
+        self.course_obj.validate(cr, uid, self.course_id)
+        curso = self.course_obj.browse(cr, uid, [self.course_id])
+        self.assertEqual('validated', curso.state)
