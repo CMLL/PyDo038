@@ -12,3 +12,10 @@ class Course(orm.Model):
                                                'Estudiantes Registrados'),
         'max_students': fields.integer('Cantidad Maxima', size=2, required=True)
     }
+
+    def validate(self, cr, uid, ids, context=None):
+        """Asegura que los alumnos registrados no excedan la cantidad maxima"""
+        for curso in self.browse(cr, uid, ids, context):
+            registrados = len(curso.registered_students)
+            if registrados > curso.max_students:
+                raise orm.except_orm('ERROR', "Mas alumnos registrados que lo permitido.")

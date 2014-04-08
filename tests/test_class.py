@@ -70,4 +70,4 @@ class TestCourse(common.TransactionCase):
         #Aqui no quiero usar mi data de curso valido, pues tendria que cambiarla
         #para solamente esta prueba. Es posible, pero es mejor crear otro curso
         #para que falle.
-        self.assertRaises(orm.except_orm, self.course_obj.validate, cr, uid, self.bad_course_id)
+        self.assertRaises(orm.except_orm, self.course_obj.validate, cr, uid, [self.bad_course_id])
